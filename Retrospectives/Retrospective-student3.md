@@ -1,7 +1,7 @@
 # Retrospective
 
-- name: Christopher Smith
-- email: christophersmith9@u.boisestate.edu
+- name: Jane Doe
+- email: janedoe@u.boisestate.edu
 
 ## Experience
 
