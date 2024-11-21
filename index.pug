@@ -31,4 +31,33 @@ ul
 img(src='/img/Moon1.jpg' alt='Moon')
 img(src='/img/Moon2.jpg' alt='School Project')
 
-ul
+script(type='text/javascript').
+  if (foo) bar(1 + 5)
+.comment-section
+
+h3 First 5 Comments:
+#comments-list
+
+// Comments will be dynamically added here
+button(onclick='goBack()') Back
+
+script.
+  function displayComments() {
+  const commentsList = document.getElementById("comments-list");
+  const firstFiveComments = JSON.parse(localStorage.getItem("firstFiveComments")) || [];
+  commentsList.innerHTML = ""; // Clear previous content
+
+  firstFiveComments.forEach(comment => {
+    let commentElement = document.createElement("div");
+    commentElement.classList.add("comment");
+    commentElement.innerHTML = `<p>${comment.text}</p>`;
+    commentsList.appendChild(commentElement);
+  });
+}
+
+function goBack() {
+  window.location.href = "student2.html"; // Go back to the main page
+}
+
+// Display comments on page load
+displayComments();
