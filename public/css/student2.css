@@ -1,3 +1,14 @@
-body{
-    background-color: orange;
+
+.comment-section {
+    margin-top: 20px;
+}
+
+.comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-actions {
+    float: right;
 }
