@@ -1,0 +1,19 @@
+doctype html
+link(rel='stylesheet' href='../css/style.css')
+
+head
+    title Factorio Engineer Comments
+body
+    h1 Comments
+form(action='/' method='POST' onsubmit='setTimeout(function () { window.location.reload(); }, 10)')
+  label(for='comments3') Enter your comment:
+  input#comments3(type='text' name='comments3')
+  input(type='submit' value='Comment')
+hr
+h2 Interact with your comments
+ul
+    - for (let i = 0; i < comments.length; i++)
+        li= comments[i].id + " " + comments[i].comment
+            form(action="/delete", method="POST" onsubmit="setTimeout(function () { window.location.reload(); }, 10)")
+                input(type="hidden", name="id" value=comments[i].id)
+                input(type="submit", value="Delete")
