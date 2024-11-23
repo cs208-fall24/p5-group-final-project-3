@@ -49,23 +49,25 @@
     </div>
 
     <script>
-        function displayComments() {
+        // JavaScript logic to display the first five comments
+        document.addEventListener("DOMContentLoaded", function () {
             const commentsList = document.getElementById("comments-list");
-            const allComments = JSON.parse(localStorage.getItem("comments")) || []; // Read from the 'comments' key
-    
-            const firstFiveComments = allComments.slice(0, 5); // Take only the first 5 comments
-            commentsList.innerHTML = ""; // Clear previous content
-    
-            firstFiveComments.forEach(comment => {
+            const allComments = JSON.parse(localStorage.getItem("comments")) || []; // Retrieve comments from localStorage
+
+            // Get the first five comments
+            const firstFiveComments = allComments.slice(0, 5);
+
+            // Clear any existing content in the comments list
+            commentsList.innerHTML = "";
+
+            // Render each comment
+            firstFiveComments.forEach(function (comment) {
                 let commentElement = document.createElement("div");
                 commentElement.classList.add("comment");
                 commentElement.innerHTML = `<p>${comment.text}</p>`;
                 commentsList.appendChild(commentElement);
             });
-        }
-    
-        // Display comments on page load
-        displayComments();
+        });
     </script>
 </body>
 </html>

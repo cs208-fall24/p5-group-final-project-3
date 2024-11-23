@@ -1,0 +1,50 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title University On The Moon
+h1 Trennon Talbot
+h2 Light Propulsion Graduation Program
+h2 Location:
+p
+  | We are located on the Light Side of the Moon. This allows for our students to experience total freedom in testing their prototypes as well as quick and easy access to internships.
+p
+  | Unlike our Dark Moon University, we offer a very energetic and bright campus to tour and a lovely view over the gardens and orchards from the dorms.
+h2 About
+h3
+  | Spacesuit Training: You will learn how to spacewalk and how to repair minor damages outside local ships.
+h3
+  | Math Skills: If you are a brainy for math, this major is for you as we explore material reflection of materials and transfer rates of light energy.
+h3
+  | Welding: As versitile as the materials it uses, master the flames as we learn who to build our own ships to cross the open expance of space.
+h2 Things To Do
+ul
+  li Build Ships
+  li Crew Member
+  li Teacher
+img(src='public/img/Moon1.jpg')
+img(src='public/img/Moon2.jpg')
+header
+  nav.navbar
+    a(href='comment.html') Comment Section
+.comment-section
+  h3 First 5 Comments:
+  button(onclick='viewFirstFive()') View First Five Comments
+  #comments-list
+    // Comments will be dynamically added here
+script.
+  // JavaScript logic to display the first five comments
+  document.addEventListener("DOMContentLoaded", function () {
+  const commentsList = document.getElementById("comments-list");
+  const allComments = JSON.parse(localStorage.getItem("comments")) || []; // Retrieve comments from localStorage
+  // Get the first five comments
+  const firstFiveComments = allComments.slice(0, 5);
+  // Clear any existing content in the comments list
+  commentsList.innerHTML = "";
+  // Render each comment
+  firstFiveComments.forEach(function (comment) {
+  let commentElement = document.createElement("div");
+  commentElement.classList.add("comment");
+  commentElement.innerHTML = `<p>${comment.text}</p>`;
+  commentsList.appendChild(commentElement);
+  });
+  });
