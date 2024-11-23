@@ -1,3 +1,26 @@
 body{
-    background-color: hotpink;
+    background-image: radial-gradient(purple, pink, lightblue);
+    font-size: 15px;
+    margin-left: 50px;
+    max-width: 600px;
+}
+
+a {
+    font-size: 15px;
+}
+
+section {
+    padding-left: 50px;
+    font-size: 17px;
+}
+img {
+    max-width: 250px;
+}
+
+.neil {
+    float: right;
+}
+
+.planet {
+    float: left;
 }
