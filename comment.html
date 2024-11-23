@@ -5,6 +5,12 @@
     <title>Comment Section</title>
 </head>
 <body>
+    <header>
+        <nav class="navbar">
+            <a href="student2.html">Major Description</a>
+        </nav>
+    </header>
+
     <div class="comment-section">
         <h3>Comments:</h3>
         <div id="comments-list">
@@ -15,12 +21,14 @@
     </div>
 
     <script>
-        let comments = []; // Array to store comments
+        let comments = JSON.parse(localStorage.getItem("comments")) || []; // Load existing comments
+        renderComments();
 
         function addComment() {
             let newComment = document.getElementById("new-comment").value;
             if (newComment.trim() !== "") {
                 comments.push({ text: newComment });
+                localStorage.setItem("comments", JSON.stringify(comments)); // Save to local storage
                 renderComments();
                 document.getElementById("new-comment").value = "";
             }
@@ -65,7 +73,7 @@
             localStorage.setItem("firstFiveComments", JSON.stringify(firstFiveComments));
             
             // Navigate to the new page
-            window.location.href = "firstFive.html";
+            window.location.href = "student2.html";
         }
     </script>
 </body>
