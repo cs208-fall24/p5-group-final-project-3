@@ -1,7 +1,7 @@
 # Retrospective
 
-- name: Jane Doe
-- email: janedoe@u.boisestate.edu
+- name: Travis Goodrich
+- email: travisGoodrich@u.boisestate.edu
 
 ## Experience
 

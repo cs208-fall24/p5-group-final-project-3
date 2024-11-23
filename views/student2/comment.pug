@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Comment Section</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="student2.html">Major Description</a>
+        </nav>
+    </header>
+
+    <div class="comment-section">
+        <h3>Comments:</h3>
+        <div id="comments-list">
+            <!-- Comments will be dynamically added here -->
+        </div>
+        <textarea id="new-comment" placeholder="Add a comment..."></textarea>
+        <button onclick="addComment()">Post Comment</button>
+    </div>
+
+    <script>
+        let comments = JSON.parse(localStorage.getItem("comments")) || []; // Load existing comments
+        renderComments();
+
+        function addComment() {
+            let newComment = document.getElementById("new-comment").value;
+            if (newComment.trim() !== "") {
+                comments.push({ text: newComment });
+                localStorage.setItem("comments", JSON.stringify(comments)); // Save to local storage
+                renderComments();
+                document.getElementById("new-comment").value = "";
+            }
+        }
+
+        function renderComments() {
+            let commentsList = document.getElementById("comments-list");
+            commentsList.innerHTML = ""; // Clear previous comments
+
+            comments.forEach((comment, index) => {
+                let commentElement = document.createElement("div");
+                commentElement.classList.add("comment");
+                commentElement.innerHTML = `
+                    <p>${comment.text}</p>
+                    <div class="comment-actions">
+                        <button onclick="editComment(${index})">Edit</button>
+                        <button onclick="deleteComment(${index})">Delete</button>
+                    </div>
+                `;
+                commentsList.appendChild(commentElement);
+            });
+        }
+
+        function deleteComment(index) {
+            comments.splice(index, 1); 
+            renderComments(); 
+        }
+
+        function editComment(index) {
+            let commentText = comments[index].text;
+            // Prompt user to edit the comment text
+            let newText = prompt("Edit comment:", commentText);
+            if (newText !== null) {
+                comments[index].text = newText;
+                renderComments();
+            }
+        }
+
+        function viewFirstFive() {
+            // Save the first 5 comments to local storage
+            const firstFiveComments = comments.slice(0, 5);
+            localStorage.setItem("firstFiveComments", JSON.stringify(firstFiveComments));
+            
+            // Navigate to the new page
+            window.location.href = "student2.html";
+        }
+    </script>
+</body>
+</html>
