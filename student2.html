@@ -34,37 +34,40 @@
     <img src="public/img/Moon1.jpg">
     <img src="public/img/Moon2.jpg">
 
-
+    <header>
+        <nav class="navbar">
+            <a href="comment.html">Comment Section</a>
+        </nav>
+    </header>
 
     <div class="comment-section">
         <h3>First 5 Comments:</h3>
+        <button onclick="viewFirstFive()">View First Five Comments</button>
         <div id="comments-list">
             <!-- Comments will be dynamically added here -->
         </div>
-        <button onclick="goBack()">Back</button>
     </div>
 
     <script>
-        function displayComments() {
+        // JavaScript logic to display the first five comments
+        document.addEventListener("DOMContentLoaded", function () {
             const commentsList = document.getElementById("comments-list");
-            const firstFiveComments = JSON.parse(localStorage.getItem("firstFiveComments")) || [];
+            const allComments = JSON.parse(localStorage.getItem("comments")) || []; // Retrieve comments from localStorage
 
-            commentsList.innerHTML = ""; // Clear previous content
+            // Get the first five comments
+            const firstFiveComments = allComments.slice(0, 5);
 
-            firstFiveComments.forEach(comment => {
+            // Clear any existing content in the comments list
+            commentsList.innerHTML = "";
+
+            // Render each comment
+            firstFiveComments.forEach(function (comment) {
                 let commentElement = document.createElement("div");
                 commentElement.classList.add("comment");
                 commentElement.innerHTML = `<p>${comment.text}</p>`;
                 commentsList.appendChild(commentElement);
             });
-        }
-
-        function goBack() {
-            window.location.href = "student2.html"; // Go back to the main page
-        }
-
-        // Display comments on page load
-        displayComments();
+        });
     </script>
 </body>
 </html>
