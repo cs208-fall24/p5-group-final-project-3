@@ -2,7 +2,7 @@ doctype html
 link(rel='stylesheet' href='css/student3.css')
 
 head
-    title Factorio engineer (PHD) - student 3
+    title Factorio Engineer (PHD) - student 3
 body
     h1 Christopher Smith
     h2 Factorio engineer (PHD)
@@ -28,5 +28,8 @@ body
             li Optimize and build the largest factory your heart has ever dreamed of.
             li Automate everything.
             li Visit distant planets and conquer the local wildlife to progress your place in the cosmos.
-        h2 Comments - 
-            a.comment-link(href='/student3/comments') Click here to comment!
+    h2 Comments - 
+        a.comment-link(href='/student3/comments3') Click here to comment!
+    ul
+        - for (let i = 0; i < comments3.length && i < 5; i++)
+            li(id= 'comment' + i)= 'comment ' + comments3[i].id + ': ' + comments3[i].comment3
