@@ -1,3 +1,57 @@
 body{
-    background-color: blue;
+    background-color: lightgray;
+    width:auto;
+    max-width:60%;
+    font-size: 18px;
+    padding-bottom: 600px;
+    margin-left:20%;
+    margin-right:20%;
+}
+
+section {
+    padding-left: 20px;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+img {
+    max-width: 200px;
+}
+
+.fulgora {
+    float:right;
+}
+
+.spitter {
+    float:left;
+}
+
+#comment0 {
+    color: #0000ff
+}
+
+#comment1 {
+    color: #0000cc
+}
+
+#comment2 {
+    color: #0000aa
+}
+
+#comment3 {
+    color: #000099
+}
+
+#comment4 {
+    color: #000077
+}
+
+.comment-link {
+    font-size: 20px;
 }
