@@ -2,7 +2,34 @@ doctype html
 link(rel='stylesheet' href='css/student3.css')
 
 head
-    title Factorio engineer (PHD) - student 3
+    title Factorio Engineer (PHD) - student 3
 body
-    h1 You will learn how to study Factorio 
-    p A complete degree in Factorio factory optimization
+    h1 Christopher Smith
+    h2 Factorio engineer (PHD)
+    section
+        h2 Location 
+        p The University of Fulgora is located among the legendary ruins of the windswept and magnetic planet of Fulgora.  You'll find the perfect environment to further your factory constructing needs. From low density structures to processing units, we have it all.
+        img.fulgora(src='/img/student3/fulgora.png' alt='The planet Fulgora')
+    section 
+        h2 About 
+        section 
+            h3 Quality Cycling 
+            p This major will teach you how to cycle quality all the items.  In the competitive world, production ratios are important.  You don't want to be caught in the wilds of an unknown planet without quality equipment.  We will teach you the most efficient ways to take your meager normal equipment and cycle it all into the legendary equipment of your dreams. 
+        section
+            h3 Space Platform Construction
+            p  With your degree in Factorio engineering, you will learn all about how to launch rockets and construct a space platforms capable of interstellar travel, generating scientific research packs, and asteroid collecting.  We will leave no planet unexplored and no huge asteroid unbroken in your education.
+        section
+            h3 Advanced Combat Techniques
+            img.spitter(src='/img/student3/spitter.png' alt='Behemoth spitter')
+            p Behemoth spitters got you down?  We understand that the Factory must grow.  We know the darn local wildlife wants to stop you.  The best way to grow your factory is with cool new weapons and technologies found around the galaxy.  With your degree as a Factorio engineer, you will be trained in how to use awesome weapons such as personal railguns, rocket launchers, and tesla turrets.
+    section
+        h2 Things To Do 
+        ul 
+            li Optimize and build the largest factory your heart has ever dreamed of.
+            li Automate everything.
+            li Visit distant planets and conquer the local wildlife to progress your place in the cosmos.
+    h2 Comments - 
+        a.comment-link(href='/student3/comments3') Click here to comment!
+    ul
+        - for (let i = 0; i < comments3.length && i < 5; i++)
+            li(id= 'comment' + i)= 'comment ' + comments3[i].id + ': ' + comments3[i].comment3

@@ -1,8 +1,11 @@
 body{
     background-color: lightgray;
-    max-width: 800px;
-    margin-left: 100px;
+    width:auto;
+    max-width:60%;
     font-size: 18px;
+    padding-bottom: 600px;
+    margin-left:20%;
+    margin-right:20%;
 }
 
 section {
@@ -27,6 +30,26 @@ img {
 
 .spitter {
     float:left;
+}
+
+#comment0 {
+    color: #0000ff
+}
+
+#comment1 {
+    color: #0000cc
+}
+
+#comment2 {
+    color: #0000aa
+}
+
+#comment3 {
+    color: #000099
+}
+
+#comment4 {
+    color: #000077
 }
 
 .comment-link {

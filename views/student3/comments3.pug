@@ -1,0 +1,26 @@
+doctype html
+link(rel='stylesheet' href='../css/style.css')
+
+head
+    title Factorio Engineer Comments
+body
+    h1 Comments
+    p 
+        a.comment-link(href='/student3') Return to main page
+form(action='/comments3' method='POST' onsubmit='setTimeout(function () { window.location.reload(); }, 10)')
+  label(for='comment_table_3') Comment:
+  input#comment_table_3(type='text' name='comment_table_3')
+  input(type='submit' value='Add')
+hr
+h2 Comments
+ul
+    - for (let i = 0; i < comments3.length; i++)
+        li= comments3[i].comment3
+            form(action="/comments3/delete", method="POST" onsubmit="setTimeout(function () { window.location.reload(); }, 10)")
+                input(type="hidden", name="id" value=comments3[i].id)
+                input(type="submit", value="Delete")
+            form(action="/comments3/edit", method="POST" onsubmit="setTimeout(function () { window.location.reload(); }, 10)")
+                input(type="hidden", name="id" value=comments3[i].id)
+                label(for="update_comment_3") Update: 
+                input(id='comment' + i type="text" name="update_comment_3")
+                input(type="submit", value="Update")
