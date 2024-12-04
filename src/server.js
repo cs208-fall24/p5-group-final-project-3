@@ -26,7 +26,7 @@ app.get('/student1', function (req, res) {
   res.render('student1')
 })
 
-app.get('/student1b', function (req, res) {
+app.get('/student1/comments1', function (req, res) {
   console.log('GET called')
   const local = { tasks: [] }
   db.each('SELECT id, task FROM comments', function (err, row) {
@@ -37,7 +37,7 @@ app.get('/student1b', function (req, res) {
       }
   }, function (err, numrows) {
       if (!err) {
-          res.render('student1b', local)
+          res.render('student1/comments1', local)
       } else {
       console.log(err)
       }
@@ -59,7 +59,7 @@ app.post('/', function (req, res) {
       }
   }, function (err, numrows) {
       if (!err) {
-          res.render('student1b', local)
+          res.render('student1/comments1', local)
       } else {
       console.log(err)
       }
@@ -81,11 +81,32 @@ app.post('/delete', function (req, res) {
       }
   }, function (err, numrows) {
       if (!err) {
-          res.render('student1b', local)
+          res.render('student1/comments1', local)
       } else {
       console.log(err)
       }
   })
+})
+
+app.post('/editCom', function (req, res) {
+  console.log('edit comment')
+  const stmt = db.prepare('UPDATE comments SET task = (?) WHERE id = (?)')
+  stmt.run(req.body.com_edit, req.body.id)
+  stmt.finalize()
+  const local = { tasks: [] }
+  db.each('SELECT id, task FROM comments', function (err, row) {
+    if (err) {
+    console.log(err)
+    } else {
+    local.tasks.push({ id: row.id, task: row.task })
+    }
+}, function (err, numrows) {
+    if (!err) {
+        res.render('student1/comments1', local)
+    } else {
+    console.log(err)
+    }
+})
 })
 
 app.get('/student2', function (req, res) {
