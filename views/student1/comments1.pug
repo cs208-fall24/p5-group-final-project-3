@@ -16,3 +16,8 @@ body
             form(action="/delete", method="post")
                 input(type="hidden", name="id" value=tasks[i].id)
                 input(type="submit", value="Delete")
+            form(action="/editCom", method="POST")
+                input(type="hidden", name="id" value=tasks[i].id)
+                label(for="com_edit")
+                input(id='comment' type="text" name="com_edit")
+                input(type="submit", value="Update")

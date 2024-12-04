@@ -1,14 +1,126 @@
-
-.comment-section {
-    margin-top: 20px;
+/* General body styling */
+body {
+    background-color: lightsteelblue;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
 }
 
-.comment {
-    border: 1px solid #ccc;
+/* Centered and bold title */
+h1 {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 20px;
+    color: darkslategray;
+}
+
+/* Navbar styling */
+header {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+header a {
+    text-decoration: none;
+}
+
+header a:hover {
+    color: darkcyan;
+}
+
+img {
+    width: 30%;
+}
+
+/* Form styling */
+form {
+    margin: 20px auto;
+    text-align: center;
+}
+
+form label {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkslategray;
+}
+
+form input[type="text"] {
+    font-size: 16px;
+    padding: 5px;
+    width: 300px;
+    margin: 10px 0;
+}
+
+form input[type="submit"] {
+    font-size: 16px;
+    padding: 5px 10px;
+    background-color: darkcyan;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color: teal;
+}
+
+/* Comments section styling */
+h2 {
+    text-align: center;
+    font-size: 40px;
+    text-decoration: underline;
+    color: darkslategray;
+}
+
+/* Comment list */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 80%;
+    text-align: left;
+}
+
+ul li {
+    font-size: 20px;
     padding: 10px;
     margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    color: darkcyan;
+    text-decoration: none; /* Removes underline */
 }
 
-.comment-actions {
-    float: right;
+/* Styling for nested forms (delete & update buttons) */
+ul li form {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+ul li form input[type="submit"] {
+    font-size: 14px;
+    padding: 5px 10px;
+    background-color: crimson;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+ul li form input[type="submit"]:hover {
+    background-color: darkred;
+}
+
+ul li form label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+ul li form input[type="text"] {
+    font-size: 14px;
+    padding: 3px;
+    width: 200px;
 }

@@ -1,80 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>Comment Section</title>
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <a href="student2.html">Major Description</a>
-        </nav>
-    </header>
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title University On The Moon
+    link(rel='stylesheet', href='/css/student2.css')
+  body
+    h1 Comments
+    header
+      nav.navbar
+        a(href='/student2') Return- Light Propulsion Graduation Program
+    form(action='/comment' method='POST' onsubmit='addComment(event)')
+      label(for='comment_table_2') Add a Comment:
+      input#comment_table_2(type='text' name='comment_table_2' required)
+      input(type='submit' value='Submit')
 
-    <div class="comment-section">
-        <h3>Comments:</h3>
-        <div id="comments-list">
-            <!-- Comments will be dynamically added here -->
-        </div>
-        <textarea id="new-comment" placeholder="Add a comment..."></textarea>
-        <button onclick="addComment()">Post Comment</button>
-    </div>
-
-    <script>
-        let comments = JSON.parse(localStorage.getItem("comments")) || []; // Load existing comments
-        renderComments();
-
-        function addComment() {
-            let newComment = document.getElementById("new-comment").value;
-            if (newComment.trim() !== "") {
-                comments.push({ text: newComment });
-                localStorage.setItem("comments", JSON.stringify(comments)); // Save to local storage
-                renderComments();
-                document.getElementById("new-comment").value = "";
-            }
-        }
-
-        function renderComments() {
-            let commentsList = document.getElementById("comments-list");
-            commentsList.innerHTML = ""; // Clear previous comments
-
-            comments.forEach((comment, index) => {
-                let commentElement = document.createElement("div");
-                commentElement.classList.add("comment");
-                commentElement.innerHTML = `
-                    <p>${comment.text}</p>
-                    <div class="comment-actions">
-                        <button onclick="editComment(${index})">Edit</button>
-                        <button onclick="deleteComment(${index})">Delete</button>
-                    </div>
-                `;
-                commentsList.appendChild(commentElement);
-            });
-        }
-
-        function deleteComment(index) {
-            comments.splice(index, 1); 
-            renderComments(); 
-        }
-
-        function editComment(index) {
-            let commentText = comments[index].text;
-            // Prompt user to edit the comment text
-            let newText = prompt("Edit comment:", commentText);
-            if (newText !== null) {
-                comments[index].text = newText;
-                renderComments();
-            }
-        }
-
-        function viewFirstFive() {
-            // Save the first 5 comments to local storage
-            const firstFiveComments = comments.slice(0, 5);
-            localStorage.setItem("firstFiveComments", JSON.stringify(firstFiveComments));
-            
-            // Navigate to the new page
-            window.location.href = "student2.html";
-        }
-    </script>
-</body>
-</html>
+    h2 All Comments
+      ul
+        if comment && comment.length
+          - for (let i = 0; i < comment.length; i++)
+            li
+              | #{comment[i].comment}
+              form(action='/comment/delete', method='POST', onsubmit="setTimeout(function () { window.location.reload(); }, 10)")
+                input(type='hidden' name='id' value=comment[i].id)
+                input(type='submit' value='Delete')
+              form(action='/comment/edit', method='POST', onsubmit="setTimeout(function () { window.location.reload(); }, 10)")
+                input(type='hidden' name='id' value=comment[i].id)
+                label(for='update_comment_2') Update Comment:
+                input(id='comment' + i type='text' name='update_comment_2')
+                input(type='submit' value='Update')
+        else
+          li No comments yet!
